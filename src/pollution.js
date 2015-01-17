@@ -1,30 +1,32 @@
-(function() {
-	'use strict';
+(function () {
+  'use strict';
 
-	var excludes = Object.keys(window).concat(['pollution']);
+  var excludes = Object.keys(window).concat(['pollution']);
 
-	var pollution = {}; // Main namespace
+  var pollution = {}; // Main namespace
 
-	function subtract(a, b) {
-		return a.filter(function(i) { return b.indexOf(i) < 0; });
-	}
+  function subtract(a, b) {
+    return a.filter(function (i) {
+      return b.indexOf(i) < 0;
+    });
+  }
 
-	function getExcludes() {
-		return excludes;
-	}
+  function getExcludes() {
+    return excludes;
+  }
 
-	pollution.get = function(excludes) {
-		excludes = excludes || [];
-		return subtract(Object.keys(window), getExcludes().concat(excludes));
-	};
+  pollution.get = function (excludes) {
+    excludes = excludes || [];
+    return subtract(Object.keys(window), getExcludes().concat(excludes));
+  };
 
-	pollution.check = function(excludes) {
-		var pollutants = pollution.get(excludes);
+  pollution.check = function (excludes) {
+    var pollutants = pollution.get(excludes);
 
-		console.log("Pollutants\n---------------\n");
-		console.log(pollutants);
-	};
+    console.log("Pollutants\n---------------\n");
+    console.log(pollutants);
+  };
 
-	// Exports
-	window.pollution = pollution;
+  // Exports
+  window.pollution = pollution;
 })();
