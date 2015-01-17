@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<!-- Because Pollution is checking for extra keys in the window namespace it must be
+	     included before any other javascript files so that it can get a reference base to the
+	     window object it is comparing agains. -->
+	<script src="../dist/pollution.js"></script>
+
+	<!-- Include other files here -->
+	<script>
+		// EXAMPLE LEAKAGE
+
+		junk = "should've declared in a scope";
+		window.moreJunk = "junk";
+		var accidentalGlobal = "not declared in a scope"
+
+		function functionInGlobal() {
+			// Should have scoped this
+		}
+
+		// RESOLUTION
+		(function() {
+			var safe = "This will not leak into the global scope."
+		})();
+	</script>
+
+	<script>
+		pollution.check(); // The results will be output to the developer console.
+	</script>
+</head>
+<body>
+
+</body>
+</html>
