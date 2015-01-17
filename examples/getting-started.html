@@ -10,6 +10,8 @@
 	<!-- Include other files here -->
 	<script>
 		// EXAMPLE LEAKAGE
+		var $ = "jQuery"; // See below for example on excluding items
+		var jQuery = "jQuery";
 
 		junk = "should've declared in a scope";
 		window.moreJunk = "junk";
@@ -26,7 +28,8 @@
 	</script>
 
 	<script>
-		pollution.check(); // The results will be output to the developer console.
+		// pollution.check(); // The results will be output to the developer console.
+		pollution.check(['$', 'jQuery']); // Excludes '$' and 'jQuery'
 	</script>
 </head>
 <body>
