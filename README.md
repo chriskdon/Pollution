@@ -10,3 +10,7 @@ Include the `pollution.js` as the very first script in your page. Then call `pol
 
   // The results will be output to the javascript console.
 ```
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ChrisKdon/pollution/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
